@@ -25,10 +25,7 @@ pipeline {
             steps{
                 script{
                     withDockerRegistry(credentialsId: 'registrycredentials') {
-                        def imageName = "kafka-consumer"  // Define image name
-                        def buildTag = "${imageName}:${BUILD_NUMBER}"
-                        def latestTag = "${imageName}:latest"  // Define latest tag
-
+                        def imageName = "kafka-consumer"
                         sh "docker build -t 10.0.0.101:30002/poc-apps/${imageName} -f Dockerfile ."
                         sh "docker push 10.0.0.101:30002/poc-apps/${imageName}"
                     }
