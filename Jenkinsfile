@@ -25,8 +25,8 @@ pipeline {
                 script{
                     withDockerRegistry(credentialsId: 'registrycredentials') {
                         def imageName = "kafka-consumer"
-                        sh "docker build -t 10.0.0.101:30002/poc-apps/${imageName} -f Dockerfile ."
-                        sh "docker push 10.0.0.101:30002/poc-apps/${imageName}"
+                        sh "docker build -t 10.0.0.101:30002/my-apps/${imageName} -f Dockerfile ."
+                        sh "docker push 10.0.0.101:30002/my-apps/${imageName}"
                     }
 
                 }
